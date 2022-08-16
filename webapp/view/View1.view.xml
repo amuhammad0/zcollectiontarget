@@ -1,0 +1,76 @@
+<mvc:View controllerName="titan.deal.titandealerstarget.controller.View1"
+    xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic" xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.f" xmlns:core="sap.ui.core"
+	xmlns:fb="sap.ui.comp.filterbar" xmlns:vm="sap.ui.comp.variants" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified">
+    <f:DynamicPage id="page" showFooter="false">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Text text="Dealer Target" class="sapUiTinyMarginEnd"/>
+				</f:heading>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:header>
+			<f:DynamicPageHeader pinnable="true">
+				<f:content>
+					<HBox>
+						<u:FileUploader id="FileUploader" class="sapUiSmallMarginTop sapUiSmallMarginBegin" sameFilenameAllowed="false" fileType="xlsx,xls"
+							buttonText="" placeholder="Choose an xls/xlsx file" style="Emphasized" width="30rem" change="handleExcelUpload" useMultipart="true"></u:FileUploader>
+						<Button id="idupload" class="sapUiSmallMarginTop sapUiTinyMarginBegin" text="Upload Dealer Target" type="Emphasized" press="onUploadFile"/>
+					</HBox>
+				</f:content>
+			</f:DynamicPageHeader>
+		</f:header>
+		<f:content>
+			<Table id="table1" width="auto" noDataText="No Data" busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+				growing="true" growingScrollToLoad="true" updateFinished=".onUpdateFinished" updateStarted="onUpdateStarted" growingThreshold="100"
+				sticky="HeaderToolbar,InfoToolbar,ColumnHeaders" busy="false" class="sapUiSmallMarginTop" items="{/SheetData}">
+				<headerToolbar>
+					<Toolbar>
+						<Title id="tableHeader" text="Dealer Target Preview"/>
+					</Toolbar>
+				</headerToolbar>
+				<columns>
+					<Column id="RSColumn" width="auto" vAlign="Middle">
+						<Text text="RS" id="RSColumnId" />
+					</Column>
+					<Column id="AMColumn" width="auto" vAlign="Middle">
+						<Text text="Dealer" id="AMColumnid"/>
+					</Column>
+                    <Column id="MonthColumn" width="auto" vAlign="Middle">
+						<Text text="Month" id="MonthColumnid"/>
+					</Column>
+					<Column id="VALUE" width="auto" vAlign="Middle">
+						<Text text="Brand" id="VALUEid"/>
+					</Column>
+					<Column id="ValAch" width="auto" vAlign="Middle">
+						<Text text="Value" id="Valueid"/>
+					</Column>
+                    <Column id="CurrColumn" width="auto" vAlign="Middle" visible="false">
+						<Text text="Currency" id="CurrId"/>
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Inactive" press=".onPress">
+						<cells>
+							
+							<ObjectIdentifier title="{RsName}"/>
+							<Text text="{DealerName}" />
+                            <Text text="{path:'SPMON', formatter: '.formatMonth'}" />
+                            <Text text="{BrandName}"/>
+							<Text text="{Value}"/>
+							<Text text="{CURR}"/>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</f:content>
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button type="Accept" text="{i18n>accept}"/>
+				<Button type="Reject" text="{i18n>reject}"/>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+</mvc:View>

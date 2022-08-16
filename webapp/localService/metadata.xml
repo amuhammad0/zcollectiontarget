@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZMBR_DASHBOARD_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ABM" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Telf1"/>
+                </Key>
+                <Property Name="Telf1" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Telephone 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fname" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Name 1" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="ABM_Details" Relationship="ZMBR_DASHBOARD_SRV.ABM_Details" FromRole="FromRole_ABM_Details" ToRole="ToRole_ABM_Details"/>
+                <NavigationProperty Name="ABM_Brand_Performance" Relationship="ZMBR_DASHBOARD_SRV.ABM_Brand_Performance" FromRole="FromRole_ABM_Brand_Performance" ToRole="ToRole_ABM_Brand_Performance"/>
+            </EntityType>
+            <EntityType Name="ABMDetails" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Kunnr"/>
+                </Key>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Customer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Telf1" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="ABM ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StartDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EndDate" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Created on" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Kvgr5" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Customer group type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RsCount" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Number of RS" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DdCount" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Number of DD" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IddCount" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Numer of IDD" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AvgUcp" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:unicode="false" sap:label="Average UCP" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AbmAvgUcp" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:unicode="false" sap:label="ABM Average UCP" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dal" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Dealer Activity Level" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TerritoryTarget" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:label="Territory target" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TerritoryAch" Type="Edm.Decimal" Nullable="false" Precision="16" Scale="3" sap:unicode="false" sap:label="Territory Achievement" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TerritoryAchPerc" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:unicode="false" sap:label="Territory Achv. percentage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CollTarget" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Collection target of ABM" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CollAchiev" Type="Edm.Decimal" Nullable="false" Precision="6" Scale="2" sap:unicode="false" sap:label="Collection achievement" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CollAchievPerc" Type="Edm.Decimal" Nullable="false" Precision="6" Scale="2" sap:unicode="false" sap:label="Collection achievement percentage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="CollectionTarget" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Key"/>
+                </Key>
+                <Property Name="Key" Type="Edm.String" Nullable="false" sap:unicode="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Value" Type="Edm.String" Nullable="false" sap:unicode="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="BrandTarget" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="KUNNR"/>
+                </Key>
+                <Property Name="KUNNR" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Kunnr" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Telf1" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="ABM_ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IBAchvPerc" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:unicode="false" sap:label="IB achievement percentage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IBAchi" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:unicode="false" sap:label="International Brand achievement" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IBTarget" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="International Brand Target" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SOAchvPerc" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:unicode="false" sap:label="Sonata achievement percentage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SOBrandAchv" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:unicode="false" sap:label="Sonata Brand achievement" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SOBrandTarget" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Sonata Brand target" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TIAchvPerc" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:unicode="false" sap:label="Titan achievement percentage" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TIBrandAchv" Type="Edm.Decimal" Nullable="false" Precision="7" Scale="2" sap:unicode="false" sap:label="Titan Brand achievement" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TIBrandTarget" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="Titan Brand target" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="ABM_Brand_Performance" sap:content-version="1">
+                <End Type="ZMBR_DASHBOARD_SRV.ABM" Multiplicity="1" Role="FromRole_ABM_Brand_Performance"/>
+                <End Type="ZMBR_DASHBOARD_SRV.BrandTarget" Multiplicity="*" Role="ToRole_ABM_Brand_Performance"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ABM_Brand_Performance">
+                        <PropertyRef Name="Telf1"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ABM_Brand_Performance">
+                        <PropertyRef Name="Telf1"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="ABM_Details" sap:content-version="1">
+                <End Type="ZMBR_DASHBOARD_SRV.ABM" Multiplicity="1" Role="FromRole_ABM_Details"/>
+                <End Type="ZMBR_DASHBOARD_SRV.ABMDetails" Multiplicity="*" Role="ToRole_ABM_Details"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_ABM_Details">
+                        <PropertyRef Name="Telf1"/>
+                    </Principal>
+                    <Dependent Role="ToRole_ABM_Details">
+                        <PropertyRef Name="Telf1"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZMBR_DASHBOARD_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ABM_Set" EntityType="ZMBR_DASHBOARD_SRV.ABM" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="ABMDetailsSet" EntityType="ZMBR_DASHBOARD_SRV.ABMDetails" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="CollectionTargetSet" EntityType="ZMBR_DASHBOARD_SRV.CollectionTarget" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="BrandTargetSet" EntityType="ZMBR_DASHBOARD_SRV.BrandTarget" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="ABM_Brand_PerformanceSet" Association="ZMBR_DASHBOARD_SRV.ABM_Brand_Performance" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ABM_Set" Role="FromRole_ABM_Brand_Performance"/>
+                    <End EntitySet="BrandTargetSet" Role="ToRole_ABM_Brand_Performance"/>
+                </AssociationSet>
+                <AssociationSet Name="ABM_DetailsSet" Association="ZMBR_DASHBOARD_SRV.ABM_Details" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="ABM_Set" Role="FromRole_ABM_Details"/>
+                    <End EntitySet="ABMDetailsSet" Role="ToRole_ABM_Details"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://sbxr3.titan.co.in:1443/sap/opu/odata/sap/ZMBR_DASHBOARD_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://sbxr3.titan.co.in:1443/sap/opu/odata/sap/ZMBR_DASHBOARD_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

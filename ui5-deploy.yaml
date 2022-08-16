@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.5"
+metadata:
+  name: titan.deal.titandealerstarget
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          destination: SBX_R3_TITAN
+          url: http://sbxr3.titan.co.in:1443
+        app:
+          name: ZTITANDEALERTGT
+          description: Titan dealer target excel upload application
+          package: ZMBR
+          transport: TPXK900125
